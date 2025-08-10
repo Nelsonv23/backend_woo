@@ -1,0 +1,265 @@
+/* resources/css/auth.css */
+
+/* =================================================================
+   ESTILOS BASE
+================================================================= */
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1b1b 50%, #3d0f0f 100%);
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Fondo geométrico inspirado en Laravel */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ff4444" stroke-width="0.3" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    z-index: -2;
+}
+
+/* =================================================================
+   ELEMENTOS GEOMÉTRICOS DECORATIVOS
+================================================================= */
+.geometric-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.geometric-shape {
+    position: absolute;
+    border: 1px solid #ff4444;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    top: 10%;
+    right: 20%;
+    width: 60px;
+    height: 60px;
+    transform: rotate(45deg);
+    animation-delay: -2s;
+}
+
+.shape-2 {
+    top: 60%;
+    right: 10%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    animation-delay: -4s;
+}
+
+.shape-3 {
+    bottom: 20%;
+    left: 15%;
+    width: 80px;
+    height: 80px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation-delay: -1s;
+}
+
+/* =================================================================
+   ANIMACIONES
+================================================================= */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================================================
+   CONTENEDOR DE LOGIN
+================================================================= */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* =================================================================
+   LOGO LARAVEL
+================================================================= */
+.laravel-logo {
+    color: #ff2d20;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 45, 32, 0.3);
+}
+
+/* =================================================================
+   FORMULARIO
+================================================================= */
+.form-label {
+    color: #e5e5e5;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ff2d20;
+    box-shadow: 0 0 0 0.2rem rgba(255, 45, 32, 0.25);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* =================================================================
+   BOTÓN DE LOGIN
+================================================================= */
+.btn-login {
+    background: linear-gradient(135deg, #ff2d20 0%, #ff6b4a 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, #e02918 0%, #ff5a3d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 45, 32, 0.3);
+    color: white;
+}
+
+/* =================================================================
+   ELEMENTOS ADICIONALES
+================================================================= */
+.forgot-password {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #ff2d20;
+}
+
+.remember-check {
+    accent-color: #ff2d20;
+}
+
+.remember-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+================================================================= */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+
+    .laravel-logo {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .geometric-shape {
+        display: none; /* Ocultar formas en móviles para mejor rendimiento */
+    }
+}
+
+/* =================================================================
+   ESTADOS DE VALIDACIÓN
+================================================================= */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.form-control.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* =================================================================
+   TEMA CLARO (OPCIONAL)
+================================================================= */
+@media (prefers-color-scheme: light) {
+    /* Puedes agregar estilos para tema claro si lo deseas */
+    /*
+    body {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+    
+    .login-card {
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+    }
+    */
+}
